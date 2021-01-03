@@ -37,6 +37,9 @@
      <v-card-subtitle>{{data.timestamp}}</v-card-subtitle>
             <v-card-text>{{data.content}}</v-card-text>
                  <v-card-subtitle>{{data.author}}</v-card-subtitle>
+                 <v-card-action>
+                     <v-btn class="secondary mx-2 my-2" @click="toggleDialog()">Back</v-btn>
+                 </v-card-action>
         </v-card>
 
     </v-dialog>
@@ -56,7 +59,7 @@ export default{
         return{
           postDialog:false,
           data:{},
-          
+
         }
 
     },
@@ -64,14 +67,18 @@ export default{
     methods:{
         viewPost(id){
             axios.get(`https://blog975.herokuapp.com/api/post/view/${id}`)
-            .then(data=>{this.data=data.data;this.postDialog=true;})
+            .then(data=>{this.data=data.data;this.toggleDialog()})
 
         },
-        toggleLen(key,len){
-            this.textlen[key]=len;
-
-
+        toggleDialog(){
+            if(this.postDialog==false){
+                this.postDialog=true;
+            }
+            else{
+                this.postDialog=false
+            }
         }
+
 
 
     },
