@@ -1,5 +1,7 @@
 # blog2
 
+A "view " version of nodejs blog application
+
 ## Project setup
 ```
 yarn install
