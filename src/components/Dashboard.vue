@@ -5,15 +5,13 @@
     <v-flex xs12 md8 offset-md2>
         <h1 class=" mb-4 font-weight-bold">Posts</h1>
 
-    </v-flex xs12 md8 offset-md2>
+    </v-flex >
     <v-flex xs12 md8 offset-md2>
-          <v-card  v-if="posts.length==0">
-              <v-sheet dark class='grey darken-3'><v-card-title>No Post Yet</v-card-title></v-sheet>
-              <v-card-subtitle>No Post have been published</v-card-subtitle>
+          <v-card  v-if="posts.length==0" dark class="p-8 secondary">
+              
+              <v-card-title><h3 >Fetching Posts..  </h3><font-awesome-icon icon="cog" spin size="2x" /></v-card-title>
 
           </v-card>
-
-
 
 
             <v-card style="overflow:hidden" fluid  dark class="grey darken-3  mb-2" v-for="(post,key) in posts" :key="key">

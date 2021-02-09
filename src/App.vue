@@ -10,6 +10,15 @@
        <Dashboard :posts="posts" />
     </v-theme-provider>
 
+    <v-snackbar v-model="dialog" timeout="6000">
+      <v-card>
+        <v-card-subtitle>Welcome To My Blog</v-card-subtitle>
+        <v-card-actions>
+          <v-button icon @click="dialog=false">OK</v-button>
+        </v-card-actions>
+      </v-card>
+    </v-snackbar>
+
   </v-main>
 
 
@@ -36,6 +45,7 @@ export default {
   data(){
     return{
       posts:[],
+      dialog:false,
       darkTheme:false,
 
 
@@ -44,7 +54,9 @@ export default {
   mounted(){
 
       axios.get("https://blog975.herokuapp.com/api/posts/all")
-      .then(data=>{this.posts=data.data.result})
+      .then(data=>{this.posts=data.data.result;
+      this.dialog=true;
+      })
        .catch(err=>console.log(err))
   },
 
