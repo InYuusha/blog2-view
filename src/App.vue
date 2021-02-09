@@ -54,8 +54,10 @@ export default {
   mounted(){
 
       axios.get("https://blog975.herokuapp.com/api/posts/all")
-      .then(data=>{this.posts=data.data.result;
+      .then(data=>{this.posts=data.data.result.reverse();
+      
       this.dialog=true;
+      
       })
        .catch(err=>console.log(err))
   },
