@@ -2,6 +2,11 @@
 
 A "view " version of nodejs blog application
 
+It fetches the posts from the mongodb using the backend that is hosting on heroku
+
+For Crud operations I have created a separate application
+
+
 ## Project setup
 ```
 yarn install
